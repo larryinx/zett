@@ -14,8 +14,8 @@ METADATA_PATH = "data/madlad400_metadata.csv"
 class Args:
     max_train_pages_per_language: int = 2_000_000
     valid_percent: float = 1.0
-    out_train_dir: str = "/mnt/disks/persist/train"
-    out_valid_dir: str = "/mnt/disks/persist/valid"
+    out_train_dir: str = "/scratch/yinx/zett/data/train"
+    out_valid_dir: str = "/scratch/yinx/zett/data/valid"
     include_langs: Optional[List[str]] = None
 
 

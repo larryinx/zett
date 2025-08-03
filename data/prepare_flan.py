@@ -6,8 +6,8 @@ from pathlib import Path
 
 @dataclass
 class Args:
-    out_train_dir: str = "/mnt/disks/persist/train"
-    out_valid_dir: str = "/mnt/disks/persist/valid"
+    out_train_dir: str = "/scratch/yinx/zett/data/train"
+    out_valid_dir: str = "/scratch/yinx/zett/data/valid"
 
 if __name__ == "__main__":
     (args,) = HfArgumentParser([Args]).parse_args_into_dataclasses()
