@@ -9,3 +9,6 @@ bucket
 slurm-*
 
 __pycache__
+
+hypernetwork_tokenizer_analysis.md
+zett.md
