@@ -16,7 +16,6 @@ import numpy as np
 
 from transformers import (
     AutoTokenizer,
-    AutoConfig,
     HfArgumentParser,
     set_seed,
 )
@@ -180,8 +179,14 @@ def main():
 
         # Sample tokenizer and get tokens
         try:
-            # The collator's sample_tokenizer method returns tokens and scores
-            tokens, _ = collator.sample_tokenizer(texts, collator.samplers[lang_code][0])
+            # The collator's sample_tokenizer method returns 5 elements:
+            # (tokenizer, special_ids_map, surface_forms, priors, byte_lengths)
+            tokenizer, _, _, _, _ = collator.sample_tokenizer(
+                texts, collator.samplers[lang_code][0]
+            )
+
+            # Extract all tokens from the sampled tokenizer vocabulary
+            tokens = tokenizer.convert_ids_to_tokens(range(len(tokenizer)))
 
             # Update frequency dictionary
             for token in tokens:
