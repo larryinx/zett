@@ -12,3 +12,4 @@ __pycache__
 
 hypernetwork_tokenizer_analysis.md
 zett.md
+*.parquet

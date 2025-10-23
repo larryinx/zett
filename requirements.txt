@@ -10,3 +10,7 @@ pyahocorasick==2.0.0
 matplotlib==3.7.2
 scikit-learn==1.4.2
 datasets==2.18.0
+rust
+scipy==1.12.0
+compilers
+patchelf

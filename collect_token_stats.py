@@ -52,7 +52,7 @@ def main():
         sys.exit(1)
 
     # Parse additional arguments
-    num_batches = 1000
+    num_batches = 30000
     output_file = "token_frequencies.json"
 
     if "--num_batches" in sys.argv:
