@@ -103,6 +103,9 @@ def main():
 
     set_seed(training_args.seed)
 
+    # Add hn_surface_maxlen to data_args (required by collator)
+    data_args.hn_surface_maxlen = hn_args.hn_surface_maxlen
+
     # Load tokenizer configuration
     reference = AutoTokenizer.from_pretrained(
         model_args.tokenizer_name or model_args.model_name_or_path
