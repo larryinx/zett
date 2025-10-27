@@ -1,5 +1,5 @@
 #!/bin/bash
-# prepare a conda environment for developing tokdrift
+# prepare a conda environment for developing hypertok
 
 _DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
@@ -20,15 +20,26 @@ function prepare_conda_env() {
         pip install --upgrade pip
 
         # Install libraries
-        conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia -y
-        conda install nvidia/label/cuda-12.4.0::cuda -y
-        conda install transformers evaluate accelerate -c conda-forge -y
-        conda install conda-forge::huggingface_hub -y
-        conda install datasets=3.6.0 -c conda-forge -y
-        conda install maturin -c conda-forge -y
-        conda install scikit-learn h5py wandb optax flax pandas pyahocorasick matplotlib -c conda-forge -y
-        conda install jax -c conda-forge -y
+        conda install h5py=3.8.0 -c conda-forge -y
+        conda install transformers=4.45.2 -c conda-forge -y
+        conda install accelerate=0.23.0 -c conda-forge -y
+        conda install wandb=0.15.4 -c conda-forge -y
+        conda install optax=0.1.5 -c conda-forge -y
+        conda install flax=0.8.0 -c conda-forge -y
+        conda install maturin=1.3.0 -c conda-forge -y
+        conda install pandas=2.0.3 -c conda-forge -y
+        conda install pyahocorasick=2.0.0 -c conda-forge -y
+        conda install matplotlib=3.7.2 -c conda-forge -y
+        conda install scikit-learn=1.4.2 -c conda-forge -y
+        conda install datasets=2.18.0 -c conda-forge -y
+        conda install jax=0.4.23 -c conda-forge -y
+        CONDA_OVERRIDE_CUDA="12.2" conda install -c conda-forge "jaxlib=0.4.23=cuda120*" -y
         conda install conda-forge::rust -y
+        conda install scipy=1.12.0 -c conda-forge -y
+        conda install compilers -c conda-forge -y
+        conda install patchelf -c conda-forge -y
+        cd rust_utils && maturin develop --release
+
         # pip install -e .[dev]
 }
 
