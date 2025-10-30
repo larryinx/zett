@@ -38,6 +38,7 @@ function prepare_conda_env() {
         conda install scipy=1.12.0 -c conda-forge -y
         conda install compilers -c conda-forge -y
         conda install patchelf -c conda-forge -y
+        conda install tiktoken -c conda-forge -y
         cd rust_utils && maturin develop --release
 
         # pip install -e .[dev]
